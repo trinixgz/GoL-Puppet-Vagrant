@@ -34,7 +34,7 @@
   scripts:
   - puppet_node_install
  
- - name: centNode2-Jenkins
+- name: centNode2-Jenkins
   box: centos/7
   cpus: 1
   memory: 4096
@@ -52,7 +52,7 @@
   - startup
   - puppet_node_install
   
-  - name: centNode3-Docker
+- name: centNode3-Docker
   box: centos/7
   cpus: 1
   memory: 4096
@@ -68,4 +68,5 @@
   - vim
   scripts:
   - puppet_node_install
+  
 ...
