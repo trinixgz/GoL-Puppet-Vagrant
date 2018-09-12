@@ -1,0 +1,2 @@
+#puppet
+#GoL-Puppet-Vagrant

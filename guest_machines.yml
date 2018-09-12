@@ -1,0 +1,71 @@
+---
+- name: master-TC
+  box: centos/7
+  cpus: 2
+  memory: 4096 
+  private_ip: 10.10.10.10
+  public_ip: 192.168.69.10
+  hostname: masterTC.localtoast
+  host_port: 80
+  forwarded_port: 8080
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  - bash
+  - vim
+  scripts:
+  - puppet_master_install
+
+- name: centNode1-Nexus
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.10.10.11
+  public_ip: 192.168.69.11
+  hostname: centagent1.localtoast
+  host_port: 80
+  forwarded_port: 8081
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  - vim
+  scripts:
+  - puppet_node_install
+ 
+ - name: centNode2-Jenkins
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.10.10.12
+  public_ip: 192.168.69.12
+  hostname: centagent2.localtoast
+  host_port: 80
+  forwarded_port: 8081
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  - vim
+  scripts:
+  - startup
+  - puppet_node_install
+  
+  - name: centNode3-Docker
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.10.10.13
+  public_ip: 192.168.69.13
+  hostname: centagent3.localtoast
+  host_port: 80
+  forwarded_port: 8081
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  - vim
+  scripts:
+  - puppet_node_install
+...
